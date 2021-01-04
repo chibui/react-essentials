@@ -47,11 +47,12 @@ const dishObjects = dishes.map((dish, i) => ({id: i, title: dish}));
 
 function App() {
   return (
-    <div className="App">
+    // shorthand for react.fragment. Using fragment will lose ability to use classes such as styling from app class.
+    <>
       <Header name="Horacio" />
       <Main adjective="amazing" dishes={dishObjects}/>
       <Footer year={new Date().getFullYear()} />
-    </div>
+    </>
   );
 }
 
