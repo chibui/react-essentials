@@ -1,8 +1,19 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import React from 'react';
 import App from './App';
+import "@testing-library/jest-dom/extend-expect";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders an h1', () => {
+  const { getByText } = render(<App />);
+  const h1 = getByText(/Hello React Testing Library/);
+  expect(h1).toHaveTextContent('Hello React Testing Library');
+  // alternate without importing extend-expect.
+  expect(h1.textContent).toBe('Hello React Testing Library');
+});
+
+test('also renders an h1', () => {
+  const { getByText } = render(<App />);
+  const h1 = getByText(/Hello React Testing Library/);
+  // alternate without importing extend-expect.
+  expect(h1.textContent).toBe('Hello React Testing Library');
 });
